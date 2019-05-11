@@ -1,0 +1,46 @@
+#include<stdio.h>
+#include<string.h>
+int main()
+{
+    int i,c=0,len1,len2,j;
+    char c1,c2,arr1[20],arr2[20];
+    printf("Enter the first word: ");
+    scanf("%s",arr1);
+    printf("Enter the second word: ");
+    scanf("%s",arr2);
+    len1=strlen(arr1);
+    len2=strlen(arr2);
+    if(len1!=len2) printf("not anagram\n\n");
+    else 
+    {
+        for (i=0;i<len1;i++)
+        {
+            for(j=0;j<len1;j++)
+            {
+                if (arr1[i]<arr1[j])
+                {
+                    c1=arr1[j];
+                    arr1[j]=arr1[i];
+                    arr1[i]=c1;
+                }
+                if (arr2[i]<arr2[j])
+                {
+                    c2=arr2[j];
+                    arr2[j]=arr2[i];
+                    arr2[i]=c2;
+                }
+            }
+        }
+    }
+    for(i=0;i<len1;i++)
+    {
+        if(arr1[i]!=arr2[i])
+        {
+            printf("NOT ANAGRAM\n\n\n");
+            break;
+        }
+        else c++;
+    }
+    if(c==len1)printf("*\n**\n***--YES THEY ARE ANAGRAM-\n***\n**\n*");
+return 0;
+}

@@ -1,0 +1,28 @@
+#include<stdio.h>
+#include<string.h>
+void CheckPalindrome(char* , int);
+int main()
+{
+    char arr1[100];
+    int len;
+    printf("Enter the Word: ");
+    scanf("%s",arr1);
+    len=strlen(arr1);
+    CheckPalindrome(&arr1,len);
+   
+}
+void CheckPalindrome(char *arr2 ,int len1)
+{
+    int i,c=0,len2,j;
+    len2=len1/2;
+    for(i=0;i<len2;i++)
+    {
+        if(*(arr2+i)!=*(arr2+len1-1-i))
+        {
+            printf("NOT PALINDROME\n\n");
+            break;
+        }
+        else c++;
+    }
+    if(c==len2) printf("YES THEY ARE PALINDROME\n\n");
+}
